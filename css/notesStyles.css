@@ -15,7 +15,7 @@
 
 #notesPage
 {
-     max-width:700px;
+     max-width:600px;
     background-color: black;
     border:rgb(184, 159, 159);
     border-style:dotted;
@@ -30,6 +30,7 @@
 {
     background-color: whitesmoke;
     width:90%;
+    border-left:3px;
 }
 #notesOutputTable,td
 {
@@ -63,4 +64,24 @@
 {
     background-color: rgb(177, 221, 221);
     border-radius:15%;
+
 }
+
+
+.noteEntry 
+{
+    width:100%;
+    min-width:320px;
+}
+
+.deleteColumn
+{
+    margin-left:auto;  
+}
+
+.noteRows
+{
+    display:flex;
+    min-width:100%;
+}
+
