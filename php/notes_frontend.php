@@ -1,19 +1,26 @@
 <?php 
     $pageId='notesPage';
-    $testTitle='<h1>Notes Frontend</h1>';
+    $titleId='notesTitle';
+    $notesInputId='notesInput';
+    $submitButtonId='notesSubmitButton';
+    $statusIndicatorId='notesStatusIndicator';
+    $outputAreaId='notesOutputArea';
+    $panelId='notesInputPanel';
+
+    $textAreaRows=5;
+
+
+    $title='<h1 id='.$titleId.'>Notes</h1>';
     $scriptLink='<script src="js/notesScripts.js"></script>';
-    $testButton=
-    '
-        <button onclick="notesTestFunction0()">Test Script Link</button>
-    ';
+
     $wholePageOpener ='<div id="'.$pageId.'">';
     $wholePageCloser='</div>';
-    $inputTextbox='<textarea id="notesInput"></textarea>';
-    $submitButton='<button onclick="handleNotesSubmitButton()" id="notesSubmitButton">Submit</button>';
-    $statusIndicator='<div id="notesStatusIndicatorBox"><p id="notesStatusIndicator">Ready</p></div>';
-    $notesOutputArea='<div id="notesOutputArea"></div>';
+    $inputTextbox='<textarea rows='.$textAreaRows.' id='.$notesInputId.'></textarea>';
+    $submitButton='<button onclick="handleNotesSubmitButton()" id="'.$submitButtonId.'">Submit</button>';
+    $statusIndicator='<div id="notesStatusIndicatorBox"><p id="'.$statusIndicatorId.'">Ready</p></div>';
+    $notesOutputArea='<div id="'.$outputAreaId.'"></div>';
     $inputPanel=
-        '<div id="notesInputPanel">'
+        '<div id="'.$panelId.'">'
         .$inputTextbox
         .'</br>'
         .$submitButton
@@ -23,7 +30,7 @@
     $fullOutput=
         $wholePageOpener.
         
-        $testTitle.
+        $title.
         $scriptLink.
         $inputPanel.
         $notesOutputArea.

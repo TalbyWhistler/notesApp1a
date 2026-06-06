@@ -79,7 +79,7 @@ function printNotes(data)
         let buttonNote=data[i]["note"].replace("'","&&&");
         middleRows=middleRows+
         `
-            <tr>
+            <tr class="noteRows">
                 <td>${data[i]["note"]}<td>
                 <td><button class="noteDeleteButton" onclick="handleNoteDelete('${buttonNote}')">Del</button></td>
             </tr>
