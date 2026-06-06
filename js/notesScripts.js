@@ -76,11 +76,12 @@ function printNotes(data)
     let middleRows='';
     for (let i=0;i<data.length;i++)
     {
+        let buttonNote=data[i]["note"].replace("'","&&&");
         middleRows=middleRows+
         `
             <tr>
                 <td>${data[i]["note"]}<td>
-                <td><button class="noteDeleteButton" onclick="handleNoteDelete('${data[i]["note"]}')">Del</button></td>
+                <td><button class="noteDeleteButton" onclick="handleNoteDelete('${buttonNote}')">Del</button></td>
             </tr>
         `;
     }
@@ -97,7 +98,8 @@ function printNotes(data)
 function handleNoteDelete(note)
 {
     console.log("Handle note delete for",note);
-    notesCallBackend("deleteNote",{note:note},afterDelete);
+    let inputNote=note.replace("&&&","'");
+    notesCallBackend("deleteNote",{note:inputNote},afterDelete);
 }
 
 function afterDelete(data)
