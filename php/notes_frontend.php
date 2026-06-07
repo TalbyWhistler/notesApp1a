@@ -1,4 +1,34 @@
 <?php 
+
+function createElement($element,$id,$class,$inner)
+    {
+        $elementString='';
+        $elementString=$elementString.'<'.$element.' id="'.$id.'" class="'.$class.'"';
+        $elementString=$elementString.'>';
+        $elementString=$elementString.$inner;
+        $elementString=$elementString.'</'.$element.'>';
+        return $elementString;
+    }
+
+function createInput($id,$class)
+    {
+        $elementString='';
+        $elementString=$elementString.'<input id="'.$id.'" class="'.$class.'"';
+        $elementString=$elementString.'/>';
+       // $elementString=$elementString.$inner;
+    //    $elementString=$elementString.'</'.$element.'>';
+        return $elementString;
+    }
+
+function createButton($id,$class,$function,$inner)
+    {
+        $elementString='';
+        $elementString=$elementString
+            .'<button id='.$id.' class='.$class.' onclick="'.$function.'()">'
+            .$inner 
+            .'</button>';
+        return $elementString;
+    }
     $pageId='notesPage';
     $titleId='notesTitle';
     $notesInputId='notesInput';
@@ -11,6 +41,7 @@
 
 
     $title='<h1 id='.$titleId.'>Notes</h1>';
+    //$title=createElement('h1','notesTitle','title','Notes');
     $scriptLink='<script src="js/notesScripts.js"></script>';
 
     $wholePageOpener ='<div id="'.$pageId.'">';
