@@ -29,45 +29,40 @@ function createButton($id,$class,$function,$inner)
             .'</button>';
         return $elementString;
     }
-    $pageId='notesPage';
-    $titleId='notesTitle';
-    $notesInputId='notesInput';
-    $submitButtonId='notesSubmitButton';
-    $statusIndicatorId='notesStatusIndicator';
-    $outputAreaId='notesOutputArea';
-    $panelId='notesInputPanel';
-
-    $textAreaRows=5;
-
-
-    $title='<h1 id='.$titleId.'>Notes</h1>';
-    //$title=createElement('h1','notesTitle','title','Notes');
-    $scriptLink='<script src="js/notesScripts.js"></script>';
-
-    $wholePageOpener ='<div id="'.$pageId.'">';
-    $wholePageCloser='</div>';
-    $inputTextbox='<textarea rows='.$textAreaRows.' id='.$notesInputId.'></textarea>';
-    $submitButton='<button onclick="handleNotesSubmitButton()" id="'.$submitButtonId.'">Submit</button>';
-    $statusIndicator='<div id="notesStatusIndicatorBox"><p id="'.$statusIndicatorId.'">Ready</p></div>';
-    $notesOutputArea='<div id="'.$outputAreaId.'"></div>';
-    $inputPanel=
-        '<div id="'.$panelId.'">'
-        .$inputTextbox
-        .'</br>'
-        .$submitButton
-        .$statusIndicator
-        .'</div>';
     
-    $fullOutput=
-        $wholePageOpener.
-        
-        $title.
-        $scriptLink.
-        $inputPanel.
-        $notesOutputArea.
-        
-        $wholePageCloser;
-    
-    echo $fullOutput;
+    function notesPage() 
+    {
+        $textAreaRows=5;
 
+        $br='<br/>';
+
+        $title=createElement('h1','notesTitle','title','Notes');
+        $scriptLink='<script src="js/notesScripts.js"></script>';
+
+    
+        $inputTextbox='<textarea rows='.$textAreaRows.' id="notesInput" class="panelInput"></textarea>';
+        $submitButton=createButton('notesSubmitButton','submitButton','handleNotesSubmitButton','Submit');
+        $statusIndicator=createElement('div','notesStatusIndicatorBox','statusIndicatorBox',createElement('p','notesStatusIndicator','statusIndicator','Ready'));
+        $notesOutputArea=createElement('div','notesOutputArea','outputArea','');
+        
+        $inputPanelContents='' 
+            .$inputTextbox 
+            .$br 
+            .$submitButton 
+            .$statusIndicator;
+        $inputPanel=createElement('div','notesInputPanel','inputPanel',$inputPanelContents);
+
+        $pageContents=''
+            .$title 
+            .$scriptLink 
+            .$inputPanel 
+            .$notesOutputArea;
+
+        $pageOutput=createElement('div','notesPage','page',$pageContents);
+
+    
+        return $pageOutput;
+    }
+    
+    echo notesPage();
 ?> 
